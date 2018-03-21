@@ -60,6 +60,20 @@ class LevelViewController: UIViewController {
         controller.currentRotation.observe { [weak self] rotation, previousRotation in
             self?.levelScene.playerNode.currentRotation.value = rotation
             }.add(to: &disposal)
+        
+        
+        
+        let level = Level(index: GameIndex(world: 0, level: 0), size: .zero, start: .zero, end: .zero, walls: [
+            Float2(1, 0),
+            Float2(2, 0),
+            Float2(3, 0),
+            ], coins: [], spheres: [], lasers: [
+                Laser(timeIntervals: [], startPosition: Float2(0, 1), vector: Float2(0, 3)),
+                Laser(timeIntervals: [], startPosition: Float2(1, 0), vector: Float2(0, -4)),
+                Laser(timeIntervals: [], startPosition: Float2(0, -1), vector: Float2(-5, 0)),
+            ])
+        
+        levelScene.level = level
     }
     
     override func viewWillAppear(_ animated: Bool) {

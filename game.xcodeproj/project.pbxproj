@@ -23,6 +23,8 @@
 		A90F58ED2062887000E9B10A /* FloorNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = A90F58EB2062886F00E9B10A /* FloorNode.swift */; };
 		A90F58EE2062887000E9B10A /* PlayerNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = A90F58EC2062887000E9B10A /* PlayerNode.swift */; };
 		A90F58F120628B7200E9B10A /* iOSController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A90F58F020628B7200E9B10A /* iOSController.swift */; };
+		A90F58F420628F5C00E9B10A /* WallNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = A90F58F220628F5B00E9B10A /* WallNode.swift */; };
+		A90F58F520628F5C00E9B10A /* LaserNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = A90F58F320628F5B00E9B10A /* LaserNode.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -45,6 +47,8 @@
 		A90F58EB2062886F00E9B10A /* FloorNode.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FloorNode.swift; sourceTree = "<group>"; };
 		A90F58EC2062887000E9B10A /* PlayerNode.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlayerNode.swift; sourceTree = "<group>"; };
 		A90F58F020628B7200E9B10A /* iOSController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = iOSController.swift; sourceTree = "<group>"; };
+		A90F58F220628F5B00E9B10A /* WallNode.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WallNode.swift; sourceTree = "<group>"; };
+		A90F58F320628F5B00E9B10A /* LaserNode.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LaserNode.swift; sourceTree = "<group>"; };
 		F574ED7DE041F4091FF109F6 /* Pods_game.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_game.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -144,7 +148,9 @@
 			children = (
 				A90F58E9206286D700E9B10A /* CameraNode.swift */,
 				A90F58EB2062886F00E9B10A /* FloorNode.swift */,
+				A90F58F320628F5B00E9B10A /* LaserNode.swift */,
 				A90F58EC2062887000E9B10A /* PlayerNode.swift */,
+				A90F58F220628F5B00E9B10A /* WallNode.swift */,
 			);
 			path = Nodes;
 			sourceTree = "<group>";
@@ -314,7 +320,9 @@
 				A90F58E72062863C00E9B10A /* LevelScene.swift in Sources */,
 				A90F58E020627EC100E9B10A /* Laser.swift in Sources */,
 				A90F58EE2062887000E9B10A /* PlayerNode.swift in Sources */,
+				A90F58F520628F5C00E9B10A /* LaserNode.swift in Sources */,
 				A90F58DF20627EC100E9B10A /* Game.swift in Sources */,
+				A90F58F420628F5C00E9B10A /* WallNode.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

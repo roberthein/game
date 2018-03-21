@@ -30,11 +30,21 @@ class LevelScene: SCNScene {
         self.level = level
         super.init()
         
-        background.contents = UIColor.darkGray
+        background.contents = UIColor.backgroundColor
+        lightingEnvironment.contents =  UIImage(gameImage: .sky)
+        lightingEnvironment.intensity = 1.3
+        
+        fogColor = UIColor.backgroundColor
+        fogStartDistance = 12
+        fogEndDistance = 17
+        fogDensityExponent = 1
+        
+        rootNode.runAction(.repeatForever(.moveBy(x: 0, y: 0, z: 0, duration: 100)))
+        
         physicsWorld.contactDelegate = self
+        physicsWorld.timeStep = 1/200
         
-        add([floorNode, playerNode, cameraNode, portalNode])
-        
+        add([cameraNode, floorNode, playerNode, portalNode])
         buildLevel()
         bind()
     }

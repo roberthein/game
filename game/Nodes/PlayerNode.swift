@@ -25,18 +25,11 @@ class PlayerNode: SCNNode {
     var isRotating = false
     var pendingRotation: Float2?
     
-    private lazy var material: SCNMaterial = {
-        let material = SCNMaterial()
-        material.diffuse.contents = UIColor.lightGray
-        
-        return material
-    }()
-    
     private(set) lazy var container: SCNNode = {
         let node = SCNNode()
         node.transform = SCNMatrix4MakeRotation(-Float.pi / 2, 1, 0, 0)
-        node.geometry = SCNBox(width: 1, height: 1, length: 1, chamferRadius: 0)
-        node.geometry?.materials = [material]
+        node.geometry = SCNBox(width: 1, height: 1, length: 1, chamferRadius: 0.1)
+        node.geometry?.materials = [.goldMaterial]
         
         return node
     }()

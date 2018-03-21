@@ -1,0 +1,24 @@
+PODS:
+  - Ease (1.0.0)
+  - Extras (1.0.3)
+  - Observable (1.3.3)
+  - Reveal-SDK (13)
+  - TinyConstraints (3.1.0)
+
+DEPENDENCIES:
+  - Ease
+  - Extras
+  - Observable
+  - Reveal-SDK
+  - TinyConstraints
+
+SPEC CHECKSUMS:
+  Ease: d76d3412093957d6f68d9031d89b5a67df66c760
+  Extras: 62b4f52f67d93fd76cf445777b2309220e43a9a8
+  Observable: 360b0132cef970a50bc69611df7fcbda46e91c34
+  Reveal-SDK: ccc2b0f8014965ea448b7534a7c2c8da232b75e8
+  TinyConstraints: 4721a4b303c799328867078ade6560e152df54d1
+
+PODFILE CHECKSUM: b19e664694c51cb3f14946299012fdfc1a81fef0
+
+COCOAPODS: 1.4.0

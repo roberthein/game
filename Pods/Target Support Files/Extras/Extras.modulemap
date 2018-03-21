@@ -1,0 +1,6 @@
+framework module Extras {
+  umbrella header "Extras-umbrella.h"
+
+  export *
+  module * { export * }
+}

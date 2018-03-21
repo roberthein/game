@@ -61,13 +61,19 @@ class LevelViewController: UIViewController {
             self?.levelScene.playerNode.currentRotation.value = rotation
             }.add(to: &disposal)
         
-        
-        
-        let level = Level(index: GameIndex(world: 0, level: 0), size: .zero, start: .zero, end: .zero, walls: [
+        let level = Level(index: GameIndex(world: 0, level: 0), size: .zero, start: .zero, end: Float2(3, 4), walls: [
             Float2(1, 0),
             Float2(2, 0),
             Float2(3, 0),
-            ], coins: [], spheres: [], lasers: [
+            ], coins: [
+                Float2(1, 2),
+                Float2(2, 2),
+                Float2(3, 2),
+                ], spheres: [
+                    Float2(1, 3),
+                    Float2(2, 3),
+                    Float2(3, 3),
+                    ], lasers: [
                 Laser(timeIntervals: [], startPosition: Float2(0, 1), vector: Float2(0, 3)),
                 Laser(timeIntervals: [], startPosition: Float2(1, 0), vector: Float2(0, -4)),
                 Laser(timeIntervals: [], startPosition: Float2(0, -1), vector: Float2(-5, 0)),

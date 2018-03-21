@@ -13,8 +13,11 @@ class LevelScene: SCNScene {
     private(set) lazy var cameraNode = CameraNode()
     private(set) lazy var floorNode = FloorNode()
     private(set) lazy var playerNode = PlayerNode()
+    private(set) lazy var portalNode = PortalNode()
     
     var walls: [WallNode] = [] { didSet { add(walls) } }
+    var coins: [CoinNode] = [] { didSet { add(coins) } }
+    var spheres: [SphereNode] = [] { didSet { add(spheres) } }
     var lasers: [LaserNode] = [] { didSet { add(lasers) } }
     
     var level: Level {
@@ -30,7 +33,7 @@ class LevelScene: SCNScene {
         background.contents = UIColor.darkGray
         physicsWorld.contactDelegate = self
         
-        add([floorNode, playerNode, cameraNode])
+        add([floorNode, playerNode, cameraNode, portalNode])
         
         buildLevel()
         bind()
@@ -44,8 +47,16 @@ class LevelScene: SCNScene {
         remove(walls)
         walls = level.walls.map { WallNode(position: $0) }
         
+        remove(coins)
+        coins = level.coins.map { CoinNode(position: $0) }
+        
+        remove(spheres)
+        spheres = level.spheres.map { SphereNode(position: $0) }
+        
         remove(lasers)
         lasers = level.lasers.map { LaserNode(laser: $0) }
+        
+        portalNode.position = SCNVector3(level.end.x, 0.85, level.end.z)
     }
     
     private func bind() {

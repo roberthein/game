@@ -28,11 +28,13 @@ class PlayerNode: SCNNode {
     private(set) lazy var container: SCNNode = {
         let node = SCNNode()
         node.transform = SCNMatrix4MakeRotation(-Float.pi / 2, 1, 0, 0)
-        node.geometry = SCNBox(width: 1, height: 1, length: 1, chamferRadius: 0.1)
-        node.geometry?.materials = [.goldMaterial]
+        node.geometry = Models.paprika.geometry
         
         return node
     }()
+    
+    let playerMaterial: SCNMaterial = .playerMaterial
+    let goldPlayerMaterial: SCNMaterial = .goldMaterial
     
     override init() {
         super.init()
@@ -51,19 +53,15 @@ class PlayerNode: SCNNode {
             
             switch state {
             case .normal:
-                print("normal")
+                _self.container.geometry?.materials = [_self.playerMaterial]
             case .gold:
-                print("gold")
+                _self.container.geometry?.materials = [_self.goldPlayerMaterial]
                 
                 DispatchQueue.main.asyncAfter(deadline: .now() + .seconds(3), execute: {
                     _self.state.value = .normal
                 })
             case .dead:
                 print("dead")
-                
-                DispatchQueue.main.asyncAfter(deadline: .now() + .seconds(3), execute: {
-                    _self.state.value = .normal
-                })
             case .finished:
                 print("finished")
             }

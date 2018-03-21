@@ -6,11 +6,18 @@ class LaserBeam: SCNNode {}
 
 class LaserNode: SCNNode {
     
-    private lazy var material: SCNMaterial = {
-        let material = SCNMaterial()
-        material.diffuse.contents = UIColor.orange
+    private lazy var pipeNodeStart: TurretNode = {
+        let node = TurretNode()
+        node.position = SCNVector3(laser.startPosition.x, 0, laser.startPosition.z)
         
-        return material
+        return node
+    }()
+    
+    private lazy var pipeNodeEnd: TurretNode = {
+        let node = TurretNode()
+        node.position = SCNVector3(laser.endPosition.x, 0, laser.endPosition.z)
+        
+        return node
     }()
     
     private(set) lazy var beam: LaserBeam = {
@@ -19,11 +26,13 @@ class LaserNode: SCNNode {
         let angle: Float = laser.vector.x < 0 || laser.vector.z < 0 ? Float.pi : -Float.pi
         let direction: Float2 = Float2(laser.vector.x.isZero ? 0 : 1, laser.vector.z.isZero ? 0 : 1)
         
-        let laserGeometry = SCNCylinder(radius: 0.025, height: length)
+        let laserGeometry = SCNTube(innerRadius: 0.1, outerRadius: 0.1, height: length)
+        laserGeometry.heightSegmentCount = 1
+        laserGeometry.radialSegmentCount = 6
         
         let node = LaserBeam()
         node.geometry = laserGeometry
-        node.geometry?.materials = [material]
+        node.geometry?.materials = [.laserMaterial]
         node.pivot = SCNMatrix4MakeTranslation(0, Float(length) / 2, 0)
         node.rotation = SCNVector4(1, 0, 0, angle / 2)
         
@@ -47,6 +56,8 @@ class LaserNode: SCNNode {
         precondition(laser.vector.x.isZero || laser.vector.z.isZero)
         precondition(laser.vector.x != laser.vector.z)
         
+        addChildNode(pipeNodeStart)
+        addChildNode(pipeNodeEnd)
         addChildNode(beam)
     }
     

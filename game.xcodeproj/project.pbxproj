@@ -33,6 +33,14 @@
 		A90F590420629C4B00E9B10A /* Images.swift in Sources */ = {isa = PBXBuildFile; fileRef = A90F590220629C4B00E9B10A /* Images.swift */; };
 		A90F590520629C4B00E9B10A /* Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = A90F590320629C4B00E9B10A /* Colors.swift */; };
 		A90F590720629CA400E9B10A /* Materials.swift in Sources */ = {isa = PBXBuildFile; fileRef = A90F590620629CA400E9B10A /* Materials.swift */; };
+		A90F590F2062A16600E9B10A /* turret.dae in Resources */ = {isa = PBXBuildFile; fileRef = A90F59092062A16600E9B10A /* turret.dae */; };
+		A90F59102062A16600E9B10A /* wall.dae in Resources */ = {isa = PBXBuildFile; fileRef = A90F590A2062A16600E9B10A /* wall.dae */; };
+		A90F59112062A16600E9B10A /* coin.dae in Resources */ = {isa = PBXBuildFile; fileRef = A90F590B2062A16600E9B10A /* coin.dae */; };
+		A90F59122062A16600E9B10A /* paprika.dae in Resources */ = {isa = PBXBuildFile; fileRef = A90F590C2062A16600E9B10A /* paprika.dae */; };
+		A90F59132062A16600E9B10A /* paprikaExplosion.dae in Resources */ = {isa = PBXBuildFile; fileRef = A90F590D2062A16600E9B10A /* paprikaExplosion.dae */; };
+		A90F59142062A16600E9B10A /* sphere.dae in Resources */ = {isa = PBXBuildFile; fileRef = A90F590E2062A16600E9B10A /* sphere.dae */; };
+		A90F59162062A18100E9B10A /* Models.swift in Sources */ = {isa = PBXBuildFile; fileRef = A90F59152062A18100E9B10A /* Models.swift */; };
+		A90F59182062A1ED00E9B10A /* TurretNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = A90F59172062A1ED00E9B10A /* TurretNode.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -65,6 +73,14 @@
 		A90F590220629C4B00E9B10A /* Images.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Images.swift; sourceTree = "<group>"; };
 		A90F590320629C4B00E9B10A /* Colors.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Colors.swift; sourceTree = "<group>"; };
 		A90F590620629CA400E9B10A /* Materials.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Materials.swift; sourceTree = "<group>"; };
+		A90F59092062A16600E9B10A /* turret.dae */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml.dae; path = turret.dae; sourceTree = "<group>"; };
+		A90F590A2062A16600E9B10A /* wall.dae */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml.dae; path = wall.dae; sourceTree = "<group>"; };
+		A90F590B2062A16600E9B10A /* coin.dae */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml.dae; path = coin.dae; sourceTree = "<group>"; };
+		A90F590C2062A16600E9B10A /* paprika.dae */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml.dae; path = paprika.dae; sourceTree = "<group>"; };
+		A90F590D2062A16600E9B10A /* paprikaExplosion.dae */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml.dae; path = paprikaExplosion.dae; sourceTree = "<group>"; };
+		A90F590E2062A16600E9B10A /* sphere.dae */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml.dae; path = sphere.dae; sourceTree = "<group>"; };
+		A90F59152062A18100E9B10A /* Models.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Models.swift; sourceTree = "<group>"; };
+		A90F59172062A1ED00E9B10A /* TurretNode.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TurretNode.swift; sourceTree = "<group>"; };
 		F574ED7DE041F4091FF109F6 /* Pods_game.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_game.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -135,6 +151,7 @@
 		A90F58CC206275F100E9B10A /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				A90F59082062A16600E9B10A /* Models */,
 				A90F58CD206275F100E9B10A /* Assets.xcassets */,
 				A90F58CE206275F100E9B10A /* LaunchScreen.storyboard */,
 				A90F58D2206275F100E9B10A /* Info.plist */,
@@ -172,6 +189,7 @@
 				A90F58EC2062887000E9B10A /* PlayerNode.swift */,
 				A90F58F6206295E900E9B10A /* PortalNode.swift */,
 				A90F58F7206295E900E9B10A /* SphereNode.swift */,
+				A90F59172062A1ED00E9B10A /* TurretNode.swift */,
 				A90F58F220628F5B00E9B10A /* WallNode.swift */,
 			);
 			path = Nodes;
@@ -199,8 +217,22 @@
 				A90F590320629C4B00E9B10A /* Colors.swift */,
 				A90F590220629C4B00E9B10A /* Images.swift */,
 				A90F590620629CA400E9B10A /* Materials.swift */,
+				A90F59152062A18100E9B10A /* Models.swift */,
 			);
 			path = Styling;
+			sourceTree = "<group>";
+		};
+		A90F59082062A16600E9B10A /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				A90F59092062A16600E9B10A /* turret.dae */,
+				A90F590A2062A16600E9B10A /* wall.dae */,
+				A90F590B2062A16600E9B10A /* coin.dae */,
+				A90F590C2062A16600E9B10A /* paprika.dae */,
+				A90F590D2062A16600E9B10A /* paprikaExplosion.dae */,
+				A90F590E2062A16600E9B10A /* sphere.dae */,
+			);
+			path = Models;
 			sourceTree = "<group>";
 		};
 		BBBE01B0DF86ACFDF6E7DB37 /* Pods */ = {
@@ -274,8 +306,14 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A90F59102062A16600E9B10A /* wall.dae in Resources */,
+				A90F59142062A16600E9B10A /* sphere.dae in Resources */,
+				A90F59132062A16600E9B10A /* paprikaExplosion.dae in Resources */,
+				A90F59122062A16600E9B10A /* paprika.dae in Resources */,
 				A90F58D4206275F100E9B10A /* Assets.xcassets in Resources */,
 				A90F58D5206275F100E9B10A /* LaunchScreen.storyboard in Resources */,
+				A90F590F2062A16600E9B10A /* turret.dae in Resources */,
+				A90F59112062A16600E9B10A /* coin.dae in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -351,6 +389,7 @@
 				A90F58FA206295E900E9B10A /* SphereNode.swift in Sources */,
 				A90F590520629C4B00E9B10A /* Colors.swift in Sources */,
 				A90F58EA206286D700E9B10A /* CameraNode.swift in Sources */,
+				A90F59162062A18100E9B10A /* Models.swift in Sources */,
 				A90F58F120628B7200E9B10A /* iOSController.swift in Sources */,
 				A90F58E120627EC100E9B10A /* World.swift in Sources */,
 				A90F58F9206295E900E9B10A /* PortalNode.swift in Sources */,
@@ -368,6 +407,7 @@
 				A90F58EE2062887000E9B10A /* PlayerNode.swift in Sources */,
 				A90F58F520628F5C00E9B10A /* LaserNode.swift in Sources */,
 				A90F5900206298AE00E9B10A /* LevelEditTileView.swift in Sources */,
+				A90F59182062A1ED00E9B10A /* TurretNode.swift in Sources */,
 				A90F590720629CA400E9B10A /* Materials.swift in Sources */,
 				A90F58DF20627EC100E9B10A /* Game.swift in Sources */,
 				A90F58F420628F5C00E9B10A /* WallNode.swift in Sources */,

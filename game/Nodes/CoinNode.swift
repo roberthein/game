@@ -5,19 +5,12 @@ import Extras
 
 class CoinNode: SCNNode {
     
-    private lazy var material: SCNMaterial = {
-        let material = SCNMaterial()
-        material.diffuse.contents = UIColor.yellow
-        
-        return material
-    }()
-    
     required init(position: Float2) {
         super.init()
         self.position = SCNVector3(position.x, 0.5, position.z)
         
-        geometry = SCNPyramid(width: 0.2, height: 0.2, length: 0.2)
-        geometry?.materials = [material]
+        geometry = Models.coin.geometry
+        geometry?.materials = [.goldMaterial]
         
         physicsBody = SCNPhysicsBody(type: .static, shape: SCNPhysicsShape(geometry: SCNSphere(radius: 0.25)))
         physicsBody?.contactTestBitMask = 999

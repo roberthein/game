@@ -4,13 +4,6 @@ import SceneKit
 
 class SphereNode: SCNNode {
     
-    private lazy var material: SCNMaterial = {
-        let material = SCNMaterial()
-        material.diffuse.contents = UIColor.white
-        
-        return material
-    }()
-    
     required init(position: Float2) {
         super.init()
         self.position = SCNVector3(position.x, 0.5, position.z)
@@ -18,8 +11,8 @@ class SphereNode: SCNNode {
         let diameter: Float = 0.6
         scale = SCNVector3(diameter, diameter, diameter)
         
-        geometry = SCNSphere(radius: 0.2)
-        geometry?.materials = [material]
+        geometry = Models.sphere.geometry
+        geometry?.materials = [.crystalMaterial]
         
         physicsBody = SCNPhysicsBody(type: .static, shape: SCNPhysicsShape(geometry: SCNSphere(radius: CGFloat(diameter) / 4)))
         physicsBody?.contactTestBitMask = 999
@@ -31,3 +24,4 @@ class SphereNode: SCNNode {
         fatalError("init(coder:) has not been implemented")
     }
 }
+

@@ -4,19 +4,12 @@ import SceneKit
 
 class PortalNode: SCNNode {
     
-    private lazy var material: SCNMaterial = {
-        let material = SCNMaterial()
-        material.diffuse.contents = UIColor.purple
-        
-        return material
-    }()
-    
     override init() {
         super.init()
         name = "portal"
         
-        geometry = SCNBox(width: 0.5, height: 0.5, length: 0.5, chamferRadius: 0)
-        geometry?.materials = [material]
+        geometry = SCNBox(width: 1.5, height: 1.5, length: 1.5, chamferRadius: 0)
+        geometry?.materials = [.portalMaterial]
         
         physicsBody = SCNPhysicsBody(type: .static, shape: SCNPhysicsShape(geometry: SCNBox(width: 0.5, height: 0.5, length: 0.5, chamferRadius: 0)))
         physicsBody?.contactTestBitMask = 999
@@ -28,3 +21,4 @@ class PortalNode: SCNNode {
         fatalError("init(coder:) has not been implemented")
     }
 }
+

@@ -19,7 +19,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         game = Game.load() ?? Game.empty
         
         window = UIWindow(frame: UIScreen.main.bounds)
-        window?.rootViewController = UINavigationController(rootViewController: ViewController())
+        window?.rootViewController = UINavigationController(rootViewController: MenuViewController())
         window?.makeKeyAndVisible()
         
         return true

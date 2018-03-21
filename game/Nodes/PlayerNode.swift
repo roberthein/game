@@ -44,10 +44,36 @@ class PlayerNode: SCNNode {
     override init() {
         super.init()
         
+        physicsBody = SCNPhysicsBody(type: .static, shape: SCNPhysicsShape(geometry: SCNBox(width: 1, height: 1, length: 1, chamferRadius: 0)))
+        physicsBody?.contactTestBitMask = 999
+        
         addChildNode(container)
         
         currentRotation.observe { [weak self] rotation, oldValue in
             self?.rotate(rotation: rotation)
+            }.add(to: &disposal)
+        
+        state.observe { [weak self] state, previousState in
+            guard let _self = self, state != previousState else { return }
+            
+            switch state {
+            case .normal:
+                print("normal")
+            case .gold:
+                print("gold")
+                
+                DispatchQueue.main.asyncAfter(deadline: .now() + .seconds(3), execute: {
+                    _self.state.value = .normal
+                })
+            case .dead:
+                print("dead")
+                
+                DispatchQueue.main.asyncAfter(deadline: .now() + .seconds(3), execute: {
+                    _self.state.value = .normal
+                })
+            case .finished:
+                print("finished")
+            }
             }.add(to: &disposal)
     }
     

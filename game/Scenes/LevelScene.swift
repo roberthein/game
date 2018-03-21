@@ -28,6 +28,7 @@ class LevelScene: SCNScene {
         super.init()
         
         background.contents = UIColor.darkGray
+        physicsWorld.contactDelegate = self
         
         add([floorNode, playerNode, cameraNode])
         
@@ -57,5 +58,22 @@ class LevelScene: SCNScene {
             guard let _self = self else { return }
             _self.cameraPosition.targetValue = SCNVector3(position.x - _self.cameraNode.distance, _self.cameraNode.height, position.z + _self.cameraNode.distance)
             }.add(to: &disposal)
+    }
+}
+
+extension LevelScene: SCNPhysicsContactDelegate {
+    
+    func physicsWorld(_ world: SCNPhysicsWorld, didBegin contact: SCNPhysicsContact) {
+        
+        contact.between(playerNode, and: walls) { [weak self] player, wall in
+            self?.playerNode.state.value = .dead
+        }
+        
+        contact.between(playerNode, and: lasers.flatMap { $0.beam }) { [weak self] player, laser in
+            guard let _self = self else { return }
+            if _self.playerNode.state.value == .normal {
+                _self.playerNode.state.value = .dead
+            }
+        }
     }
 }

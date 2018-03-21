@@ -18,6 +18,9 @@ class WallNode: SCNNode {
         
         geometry = SCNBox(width: 0.5, height: 0.5, length: 0.5, chamferRadius: 0)
         geometry?.materials = [material]
+        
+        physicsBody = SCNPhysicsBody(type: .static, shape: SCNPhysicsShape(geometry: SCNSphere(radius: 0.5 / 2)))
+        physicsBody?.contactTestBitMask = 999
     }
     
     required init?(coder aDecoder: NSCoder) {

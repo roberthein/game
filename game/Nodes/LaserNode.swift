@@ -32,6 +32,8 @@ class LaserNode: SCNNode {
         }
         
         node.position = SCNVector3(laser.startPosition.x, 0.4, laser.startPosition.z)
+        node.physicsBody = SCNPhysicsBody(type: .static, shape: SCNPhysicsShape(geometry: SCNTube(innerRadius: 0.2, outerRadius: 0.2, height: length)))
+        node.physicsBody?.contactTestBitMask = 999
         
         return node
     }()

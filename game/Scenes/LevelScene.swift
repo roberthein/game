@@ -7,6 +7,8 @@ import Extras
 class LevelScene: SCNScene {
     
     private(set) lazy var cameraNode = CameraNode()
+    private(set) lazy var floorNode = FloorNode()
+    private(set) lazy var playerNode = PlayerNode()
     
     var level: Level
     
@@ -16,7 +18,7 @@ class LevelScene: SCNScene {
         
         background.contents = UIColor.darkGray
         
-        add([cameraNode])
+        add([floorNode, playerNode, cameraNode])
     }
     
     required init?(coder aDecoder: NSCoder) {

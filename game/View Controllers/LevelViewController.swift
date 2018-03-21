@@ -21,6 +21,7 @@ class LevelViewController: UIViewController {
         let view = SCNView(frame: UIScreen.main.bounds)
         view.antialiasingMode = .multisampling4X
         view.scene = levelScene
+        view.autoenablesDefaultLighting = true
         
         return view
     }()

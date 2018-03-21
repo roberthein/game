@@ -20,6 +20,8 @@
 		A90F58E42062837900E9B10A /* LevelViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A90F58E32062837900E9B10A /* LevelViewController.swift */; };
 		A90F58E72062863C00E9B10A /* LevelScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = A90F58E62062863C00E9B10A /* LevelScene.swift */; };
 		A90F58EA206286D700E9B10A /* CameraNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = A90F58E9206286D700E9B10A /* CameraNode.swift */; };
+		A90F58ED2062887000E9B10A /* FloorNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = A90F58EB2062886F00E9B10A /* FloorNode.swift */; };
+		A90F58EE2062887000E9B10A /* PlayerNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = A90F58EC2062887000E9B10A /* PlayerNode.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -39,6 +41,8 @@
 		A90F58E32062837900E9B10A /* LevelViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LevelViewController.swift; sourceTree = "<group>"; };
 		A90F58E62062863C00E9B10A /* LevelScene.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LevelScene.swift; sourceTree = "<group>"; };
 		A90F58E9206286D700E9B10A /* CameraNode.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CameraNode.swift; sourceTree = "<group>"; };
+		A90F58EB2062886F00E9B10A /* FloorNode.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FloorNode.swift; sourceTree = "<group>"; };
+		A90F58EC2062887000E9B10A /* PlayerNode.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlayerNode.swift; sourceTree = "<group>"; };
 		F574ED7DE041F4091FF109F6 /* Pods_game.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_game.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -136,6 +140,8 @@
 			isa = PBXGroup;
 			children = (
 				A90F58E9206286D700E9B10A /* CameraNode.swift */,
+				A90F58EB2062886F00E9B10A /* FloorNode.swift */,
+				A90F58EC2062887000E9B10A /* PlayerNode.swift */,
 			);
 			path = Nodes;
 			sourceTree = "<group>";
@@ -288,12 +294,14 @@
 				A90F58EA206286D700E9B10A /* CameraNode.swift in Sources */,
 				A90F58E120627EC100E9B10A /* World.swift in Sources */,
 				A90F58E220627EC100E9B10A /* Level.swift in Sources */,
+				A90F58ED2062887000E9B10A /* FloorNode.swift in Sources */,
 				A90F58DE20627EC100E9B10A /* Float2.swift in Sources */,
 				A90F58E42062837900E9B10A /* LevelViewController.swift in Sources */,
 				A90F58D3206275F100E9B10A /* MenuViewController.swift in Sources */,
 				A90F58B92062755900E9B10A /* AppDelegate.swift in Sources */,
 				A90F58E72062863C00E9B10A /* LevelScene.swift in Sources */,
 				A90F58E020627EC100E9B10A /* Laser.swift in Sources */,
+				A90F58EE2062887000E9B10A /* PlayerNode.swift in Sources */,
 				A90F58DF20627EC100E9B10A /* Game.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

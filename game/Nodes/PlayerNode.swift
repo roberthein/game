@@ -81,6 +81,12 @@ class PlayerNode: SCNNode {
         fatalError("init(coder:) has not been implemented")
     }
     
+    func forceNewPosition(_ forcedNewPosition: Float2) {
+        position = SCNVector3(forcedNewPosition.x, 0, forcedNewPosition.z)
+        targetPosition.value = forcedNewPosition
+        newPosition.value = forcedNewPosition
+    }
+    
     func rotate(rotation: Float2) {
         guard !rotation.isZero else {
             finalise(rotation)

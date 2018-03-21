@@ -16,6 +16,17 @@ class LevelViewController: UIViewController {
         return view
     }()
     
+    private lazy var editButton: UIButton = {
+        let view = UIButton()
+        view.layer.borderColor = UIColor.white.cgColor
+        view.layer.borderWidth = 2 / UIScreen.main.scale
+        view.layer.cornerRadius = 22
+        view.clipsToBounds = true
+        view.addTarget(self, action: #selector(edit(_:)), for: .touchUpInside)
+        
+        return view
+    }()
+    
     private var disposal = Disposal()
     private lazy var levelScene = LevelScene(level: level)
     private lazy var controller = iOSController()
@@ -52,34 +63,19 @@ class LevelViewController: UIViewController {
         
         view.addSubview(scnView)
         view.addSubview(backButton)
+        view.addSubview(editButton)
         
         backButton.topToSuperview(offset: 20, usingSafeArea: true)
         backButton.leftToSuperview(offset: 20)
         backButton.size(CGSize(width: 44, height: 44))
         
+        editButton.topToSuperview(offset: 20, usingSafeArea: true)
+        editButton.rightToSuperview(offset: 20)
+        editButton.size(CGSize(width: 44, height: 44))
+        
         controller.currentRotation.observe { [weak self] rotation, previousRotation in
             self?.levelScene.playerNode.currentRotation.value = rotation
             }.add(to: &disposal)
-        
-        let level = Level(index: GameIndex(world: 0, level: 0), size: .zero, start: .zero, end: Float2(3, 4), walls: [
-            Float2(1, 0),
-            Float2(2, 0),
-            Float2(3, 0),
-            ], coins: [
-                Float2(1, 2),
-                Float2(2, 2),
-                Float2(3, 2),
-                ], spheres: [
-                    Float2(1, 3),
-                    Float2(2, 3),
-                    Float2(3, 3),
-                    ], lasers: [
-                Laser(timeIntervals: [], startPosition: Float2(0, 1), vector: Float2(0, 3)),
-                Laser(timeIntervals: [], startPosition: Float2(1, 0), vector: Float2(0, -4)),
-                Laser(timeIntervals: [], startPosition: Float2(0, -1), vector: Float2(-5, 0)),
-            ])
-        
-        levelScene.level = level
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -91,11 +87,25 @@ class LevelViewController: UIViewController {
         navigationController?.popViewController(animated: true)
     }
     
+    @objc func edit(_ buttone: UIButton) {
+        let levelEditViewController = LevelEditViewController(with: level)
+        levelEditViewController.delegate = self
+        present(levelEditViewController, animated: true)
+    }
+    
     override var prefersStatusBarHidden: Bool {
         return true
     }
     
     override func prefersHomeIndicatorAutoHidden() -> Bool {
         return true
+    }
+}
+
+extension LevelViewController: LevelEditViewControllerDelegate {
+    
+    func didEdit(level: Level) {
+        self.level = level
+        App.game.saveLevel(level)
     }
 }

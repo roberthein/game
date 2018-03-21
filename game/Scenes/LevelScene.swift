@@ -56,6 +56,8 @@ class LevelScene: SCNScene {
         remove(lasers)
         lasers = level.lasers.map { LaserNode(laser: $0) }
         
+        playerNode.forceNewPosition(level.start)
+        cameraNode.forceNewPosition(level.start)
         portalNode.position = SCNVector3(level.end.x, 0.85, level.end.z)
     }
     

@@ -1,5 +1,6 @@
 import UIKit
 import TinyConstraints
+import SceneKit
 
 class LevelViewController: UIViewController {
     
@@ -14,7 +15,21 @@ class LevelViewController: UIViewController {
         return view
     }()
     
-    let level: Level
+    private lazy var levelScene = LevelScene(level: level)
+    
+    private lazy var scnView: SCNView = {
+        let view = SCNView(frame: UIScreen.main.bounds)
+        view.antialiasingMode = .multisampling4X
+        view.scene = levelScene
+        
+        return view
+    }()
+    
+    var level: Level {
+        didSet {
+            levelScene.level = level
+        }
+    }
     
     required init(level: Level) {
         self.level = level
@@ -30,6 +45,7 @@ class LevelViewController: UIViewController {
         
         view.backgroundColor = .gray
         
+        view.addSubview(scnView)
         view.addSubview(backButton)
         
         backButton.topToSuperview(offset: 20, usingSafeArea: true)

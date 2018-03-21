@@ -18,6 +18,8 @@
 		A90F58E120627EC100E9B10A /* World.swift in Sources */ = {isa = PBXBuildFile; fileRef = A90F58DC20627EC100E9B10A /* World.swift */; };
 		A90F58E220627EC100E9B10A /* Level.swift in Sources */ = {isa = PBXBuildFile; fileRef = A90F58DD20627EC100E9B10A /* Level.swift */; };
 		A90F58E42062837900E9B10A /* LevelViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A90F58E32062837900E9B10A /* LevelViewController.swift */; };
+		A90F58E72062863C00E9B10A /* LevelScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = A90F58E62062863C00E9B10A /* LevelScene.swift */; };
+		A90F58EA206286D700E9B10A /* CameraNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = A90F58E9206286D700E9B10A /* CameraNode.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -35,6 +37,8 @@
 		A90F58DC20627EC100E9B10A /* World.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = World.swift; sourceTree = "<group>"; };
 		A90F58DD20627EC100E9B10A /* Level.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Level.swift; sourceTree = "<group>"; };
 		A90F58E32062837900E9B10A /* LevelViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LevelViewController.swift; sourceTree = "<group>"; };
+		A90F58E62062863C00E9B10A /* LevelScene.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LevelScene.swift; sourceTree = "<group>"; };
+		A90F58E9206286D700E9B10A /* CameraNode.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CameraNode.swift; sourceTree = "<group>"; };
 		F574ED7DE041F4091FF109F6 /* Pods_game.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_game.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -81,7 +85,9 @@
 			children = (
 				A90F58B82062755900E9B10A /* AppDelegate.swift */,
 				A90F58D820627EC100E9B10A /* Data */,
+				A90F58E8206286D700E9B10A /* Nodes */,
 				A90F58CC206275F100E9B10A /* Resources */,
+				A90F58E52062863C00E9B10A /* Scenes */,
 				A90F58CA206275F100E9B10A /* View Controllers */,
 			);
 			path = game;
@@ -116,6 +122,22 @@
 				A90F58DD20627EC100E9B10A /* Level.swift */,
 			);
 			path = Data;
+			sourceTree = "<group>";
+		};
+		A90F58E52062863C00E9B10A /* Scenes */ = {
+			isa = PBXGroup;
+			children = (
+				A90F58E62062863C00E9B10A /* LevelScene.swift */,
+			);
+			path = Scenes;
+			sourceTree = "<group>";
+		};
+		A90F58E8206286D700E9B10A /* Nodes */ = {
+			isa = PBXGroup;
+			children = (
+				A90F58E9206286D700E9B10A /* CameraNode.swift */,
+			);
+			path = Nodes;
 			sourceTree = "<group>";
 		};
 		BBBE01B0DF86ACFDF6E7DB37 /* Pods */ = {
@@ -263,12 +285,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A90F58EA206286D700E9B10A /* CameraNode.swift in Sources */,
 				A90F58E120627EC100E9B10A /* World.swift in Sources */,
 				A90F58E220627EC100E9B10A /* Level.swift in Sources */,
 				A90F58DE20627EC100E9B10A /* Float2.swift in Sources */,
 				A90F58E42062837900E9B10A /* LevelViewController.swift in Sources */,
 				A90F58D3206275F100E9B10A /* MenuViewController.swift in Sources */,
 				A90F58B92062755900E9B10A /* AppDelegate.swift in Sources */,
+				A90F58E72062863C00E9B10A /* LevelScene.swift in Sources */,
 				A90F58E020627EC100E9B10A /* Laser.swift in Sources */,
 				A90F58DF20627EC100E9B10A /* Game.swift in Sources */,
 			);

@@ -41,6 +41,9 @@
 		A90F59142062A16600E9B10A /* sphere.dae in Resources */ = {isa = PBXBuildFile; fileRef = A90F590E2062A16600E9B10A /* sphere.dae */; };
 		A90F59162062A18100E9B10A /* Models.swift in Sources */ = {isa = PBXBuildFile; fileRef = A90F59152062A18100E9B10A /* Models.swift */; };
 		A90F59182062A1ED00E9B10A /* TurretNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = A90F59172062A1ED00E9B10A /* TurretNode.swift */; };
+		A90F591A2062A49300E9B10A /* art.scnassets in Resources */ = {isa = PBXBuildFile; fileRef = A90F59192062A49300E9B10A /* art.scnassets */; };
+		A90F59272062A4A500E9B10A /* Particles.swift in Sources */ = {isa = PBXBuildFile; fileRef = A90F59262062A4A500E9B10A /* Particles.swift */; };
+		A90F593E2062A59B00E9B10A /* PaprikaExplosionNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = A90F593D2062A59A00E9B10A /* PaprikaExplosionNode.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -81,6 +84,9 @@
 		A90F590E2062A16600E9B10A /* sphere.dae */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml.dae; path = sphere.dae; sourceTree = "<group>"; };
 		A90F59152062A18100E9B10A /* Models.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Models.swift; sourceTree = "<group>"; };
 		A90F59172062A1ED00E9B10A /* TurretNode.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TurretNode.swift; sourceTree = "<group>"; };
+		A90F59192062A49300E9B10A /* art.scnassets */ = {isa = PBXFileReference; lastKnownFileType = wrapper.scnassets; path = art.scnassets; sourceTree = "<group>"; };
+		A90F59262062A4A500E9B10A /* Particles.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Particles.swift; sourceTree = "<group>"; };
+		A90F593D2062A59A00E9B10A /* PaprikaExplosionNode.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PaprikaExplosionNode.swift; sourceTree = "<group>"; };
 		F574ED7DE041F4091FF109F6 /* Pods_game.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_game.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -151,6 +157,7 @@
 		A90F58CC206275F100E9B10A /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				A90F59192062A49300E9B10A /* art.scnassets */,
 				A90F59082062A16600E9B10A /* Models */,
 				A90F58CD206275F100E9B10A /* Assets.xcassets */,
 				A90F58CE206275F100E9B10A /* LaunchScreen.storyboard */,
@@ -186,6 +193,7 @@
 				A90F58F8206295E900E9B10A /* CoinNode.swift */,
 				A90F58EB2062886F00E9B10A /* FloorNode.swift */,
 				A90F58F320628F5B00E9B10A /* LaserNode.swift */,
+				A90F593D2062A59A00E9B10A /* PaprikaExplosionNode.swift */,
 				A90F58EC2062887000E9B10A /* PlayerNode.swift */,
 				A90F58F6206295E900E9B10A /* PortalNode.swift */,
 				A90F58F7206295E900E9B10A /* SphereNode.swift */,
@@ -218,6 +226,7 @@
 				A90F590220629C4B00E9B10A /* Images.swift */,
 				A90F590620629CA400E9B10A /* Materials.swift */,
 				A90F59152062A18100E9B10A /* Models.swift */,
+				A90F59262062A4A500E9B10A /* Particles.swift */,
 			);
 			path = Styling;
 			sourceTree = "<group>";
@@ -307,6 +316,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				A90F59102062A16600E9B10A /* wall.dae in Resources */,
+				A90F591A2062A49300E9B10A /* art.scnassets in Resources */,
 				A90F59142062A16600E9B10A /* sphere.dae in Resources */,
 				A90F59132062A16600E9B10A /* paprikaExplosion.dae in Resources */,
 				A90F59122062A16600E9B10A /* paprika.dae in Resources */,
@@ -386,11 +396,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A90F593E2062A59B00E9B10A /* PaprikaExplosionNode.swift in Sources */,
 				A90F58FA206295E900E9B10A /* SphereNode.swift in Sources */,
 				A90F590520629C4B00E9B10A /* Colors.swift in Sources */,
 				A90F58EA206286D700E9B10A /* CameraNode.swift in Sources */,
 				A90F59162062A18100E9B10A /* Models.swift in Sources */,
 				A90F58F120628B7200E9B10A /* iOSController.swift in Sources */,
+				A90F59272062A4A500E9B10A /* Particles.swift in Sources */,
 				A90F58E120627EC100E9B10A /* World.swift in Sources */,
 				A90F58F9206295E900E9B10A /* PortalNode.swift in Sources */,
 				A90F58E220627EC100E9B10A /* Level.swift in Sources */,

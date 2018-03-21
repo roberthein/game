@@ -25,6 +25,8 @@ class PlayerNode: SCNNode {
     var isRotating = false
     var pendingRotation: Float2?
     
+    private lazy var goldenParticles = Particles.sparklesBig.node()
+    
     private(set) lazy var container: SCNNode = {
         let node = SCNNode()
         node.transform = SCNMatrix4MakeRotation(-Float.pi / 2, 1, 0, 0)
@@ -43,6 +45,7 @@ class PlayerNode: SCNNode {
         physicsBody?.contactTestBitMask = 999
         
         addChildNode(container)
+        addChildNode(goldenParticles)
         
         currentRotation.observe { [weak self] rotation, oldValue in
             self?.rotate(rotation: rotation)
@@ -54,16 +57,34 @@ class PlayerNode: SCNNode {
             switch state {
             case .normal:
                 _self.container.geometry?.materials = [_self.playerMaterial]
+                _self.goldenParticles.isHidden = true
             case .gold:
                 _self.container.geometry?.materials = [_self.goldPlayerMaterial]
+                _self.goldenParticles.isHidden = false
                 
                 DispatchQueue.main.asyncAfter(deadline: .now() + .seconds(3), execute: {
                     _self.state.value = .normal
                 })
             case .dead:
-                print("dead")
+                let playerExplosion = PaprikaExplosionNode(direction: _self.currentRotation.value, materials: _self.container.geometry?.materials)
+                playerExplosion.transform = _self.container.transform
+                _self.goldenParticles.isHidden = true
+                
+                _self.addChildNode(playerExplosion)
+                _self.container.removeFromParentNode()
+                
+                DispatchQueue.main.asyncAfter(deadline: .now() + .seconds(3), execute: {
+                    _self.state.value = .normal
+                    _self.container.transform = SCNMatrix4MakeRotation(-Float.pi / 2, 1, 0, 0)
+                    _self.addChildNode(_self.container)
+                    playerExplosion.removeFromParentNode()
+                })
             case .finished:
-                print("finished")
+                if previousState != .finished {
+                    _self.runAction(.repeatForever(.moveBy(x: 0, y: 1, z: 0, duration: 1)))
+                    _self.runAction(.repeatForever(.rotateBy(x: 0, y: CGFloat.pi * 2, z: 0, duration: 1)))
+                    _self.runAction(.fadeOut(duration: 2))
+                }
             }
             }.add(to: &disposal)
     }

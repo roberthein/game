@@ -18,10 +18,12 @@ class SphereNode: SCNNode {
         physicsBody?.contactTestBitMask = 999
         
         runAction(.repeatForever(.rotateBy(x: CGFloat.pi * 2, y: CGFloat.pi * 2, z: CGFloat.pi * 2, duration: 5)))
+        
+        addChildNode(Particles.beams.node(color: .white))
+        addChildNode(Particles.sparkles.node(color: .white))
     }
     
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
 }
-

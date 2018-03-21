@@ -15,6 +15,8 @@ class LevelScene: SCNScene {
     private(set) lazy var playerNode = PlayerNode()
     private(set) lazy var portalNode = PortalNode()
     
+    let coinCount = Observable(Int.zero)
+    
     var walls: [WallNode] = [] { didSet { add(walls) } }
     var coins: [CoinNode] = [] { didSet { add(coins) } }
     var spheres: [SphereNode] = [] { didSet { add(spheres) } }
@@ -81,15 +83,49 @@ class LevelScene: SCNScene {
             guard let _self = self else { return }
             _self.cameraPosition.targetValue = SCNVector3(position.x - _self.cameraNode.distance, _self.cameraNode.height, position.z + _self.cameraNode.distance)
             }.add(to: &disposal)
+        
+        playerNode.newPosition.observe { [weak self] position, oldValue in
+            guard let _self = self else { return }
+            
+            let impactNode = Particles.impact.node(color: _self.playerNode.state.value == .normal ? .turquoise : .gold)
+            impactNode.position = SCNVector3(position.x, 0, position.z)
+            impactNode.eulerAngles = SCNVector3(x: -Float.pi / 2, y: 0, z: 0)
+            _self.rootNode.addChildNode(impactNode)
+            }.add(to: &disposal)
+        
+        playerNode.state.observe { [weak self] state, previousState in
+            guard let _self = self, let previousState = previousState else { return }
+            
+            if state == .normal, previousState == .dead {
+                _self.coinCount.value = 0
+                _self.walls.forEach { $0.isOn = false }
+                _self.coins.forEach { $0.reset() }
+                _self.playerNode.forceNewPosition(_self.level.start)
+            } else if state == .finished, previousState != .finished {
+                _self.portalNode.removeAllActions()
+                _self.portalNode.runAction(.repeatForever(.moveBy(x: 0, y: 1, z: 0, duration: 1)))
+                _self.portalNode.runAction(.repeatForever(.rotateBy(x: 0, y: CGFloat.pi * 2, z: 0, duration: 1)))
+            }
+            
+            }.add(to: &disposal)
     }
 }
 
 extension LevelScene: SCNPhysicsContactDelegate {
     
     func physicsWorld(_ world: SCNPhysicsWorld, didBegin contact: SCNPhysicsContact) {
-        
         contact.between(playerNode, and: walls) { [weak self] player, wall in
+            wall.isOn = true
             self?.playerNode.state.value = .dead
+        }
+        
+        contact.between(playerNode, and: coins) { [weak self] player, coin in
+            coin.animateCollected()
+            self?.coinCount.value += 1
+        }
+        
+        contact.between(playerNode, and: spheres) { [weak self] player, sphere in
+            self?.playerNode.state.value = .gold
         }
         
         contact.between(playerNode, and: lasers.flatMap { $0.beam }) { [weak self] player, laser in
@@ -98,5 +134,13 @@ extension LevelScene: SCNPhysicsContactDelegate {
                 _self.playerNode.state.value = .dead
             }
         }
+        
+        let portalNodes: [PortalNode] = [portalNode]
+        
+        contact.between(playerNode, and: portalNodes) { [weak self] player, portal in
+            self?.playerNode.state.value = .finished
+        }
     }
 }
+
+

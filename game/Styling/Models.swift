@@ -10,6 +10,8 @@ public enum Models: String {
     case wall
     case coin
     case turret
+    case title
+    case levelSelect
     
     var scene: SCNScene {
         let fileName: String = rawValue

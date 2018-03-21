@@ -1,14 +1,25 @@
 import UIKit
-import TinyConstraints
 import SceneKit
+import TinyConstraints
 import Observable
 
 class LevelViewController: UIViewController {
     
+    private var disposal = Disposal()
+    private lazy var controller = iOSController()
+    
+    private lazy var coinCountLabel: UILabel = {
+        let view = UILabel()
+        view.font = UIFont(name: "ArialRoundedMTBold", size: 50)
+        view.textColor = UIColor.turquoise.withAlphaComponent(0.5)
+        
+        return view
+    }()
+    
     private lazy var backButton: UIButton = {
         let view = UIButton()
         view.layer.borderColor = UIColor.white.cgColor
-        view.layer.borderWidth = 2
+        view.layer.borderWidth = 2 / UIScreen.main.scale
         view.layer.cornerRadius = 22
         view.clipsToBounds = true
         view.addTarget(self, action: #selector(back(_:)), for: .touchUpInside)
@@ -27,15 +38,12 @@ class LevelViewController: UIViewController {
         return view
     }()
     
-    private var disposal = Disposal()
     private lazy var levelScene = LevelScene(level: level)
-    private lazy var controller = iOSController()
     
     private lazy var scnView: SCNView = {
         let view = SCNView(frame: UIScreen.main.bounds)
         view.antialiasingMode = .multisampling4X
         view.scene = levelScene
-        view.autoenablesDefaultLighting = true
         
         return view
     }()
@@ -58,12 +66,13 @@ class LevelViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        view.backgroundColor = .gray
+        view.backgroundColor = UIColor.backgroundColor
         view.addGestureRecognizer(controller.panGestureRecognizer)
         
         view.addSubview(scnView)
         view.addSubview(backButton)
         view.addSubview(editButton)
+        view.addSubview(coinCountLabel)
         
         backButton.topToSuperview(offset: 20, usingSafeArea: true)
         backButton.leftToSuperview(offset: 20)
@@ -73,8 +82,29 @@ class LevelViewController: UIViewController {
         editButton.rightToSuperview(offset: 20)
         editButton.size(CGSize(width: 44, height: 44))
         
+        coinCountLabel.centerXToSuperview()
+        coinCountLabel.topToSuperview(offset: 20, usingSafeArea: true)
+        
         controller.currentRotation.observe { [weak self] rotation, previousRotation in
             self?.levelScene.playerNode.currentRotation.value = rotation
+            }.add(to: &disposal)
+        
+        levelScene.playerNode.state.observe { [weak self] state, previousState in
+            guard let _self = self, let previousState = previousState else { return }
+            
+            if state == .finished, previousState != .finished {
+                _self.controller.isEnabled = false
+                
+                DispatchQueue.main.asyncAfter(deadline: .now() + .seconds(3), execute: {
+                    _self.navigationController?.fadePop()
+                })
+            }
+            
+            }.add(to: &disposal)
+        
+        levelScene.coinCount.observe { [weak self] count, previousCount in
+            guard let _self = self else { return }
+            _self.coinCountLabel.text = "\(count)" + "/" + "\(_self.level.coins.count)"
             }.add(to: &disposal)
     }
     
@@ -84,7 +114,7 @@ class LevelViewController: UIViewController {
     }
     
     @objc func back(_ buttone: UIButton) {
-        navigationController?.popViewController(animated: true)
+        navigationController?.fadePop()
     }
     
     @objc func edit(_ buttone: UIButton) {

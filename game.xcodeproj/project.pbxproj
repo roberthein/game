@@ -44,6 +44,8 @@
 		A90F591A2062A49300E9B10A /* art.scnassets in Resources */ = {isa = PBXBuildFile; fileRef = A90F59192062A49300E9B10A /* art.scnassets */; };
 		A90F59272062A4A500E9B10A /* Particles.swift in Sources */ = {isa = PBXBuildFile; fileRef = A90F59262062A4A500E9B10A /* Particles.swift */; };
 		A90F593E2062A59B00E9B10A /* PaprikaExplosionNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = A90F593D2062A59A00E9B10A /* PaprikaExplosionNode.swift */; };
+		A90F59412062A7ED00E9B10A /* title.dae in Resources */ = {isa = PBXBuildFile; fileRef = A90F593F2062A7EC00E9B10A /* title.dae */; };
+		A90F59422062A7ED00E9B10A /* levelSelect.dae in Resources */ = {isa = PBXBuildFile; fileRef = A90F59402062A7ED00E9B10A /* levelSelect.dae */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -87,6 +89,8 @@
 		A90F59192062A49300E9B10A /* art.scnassets */ = {isa = PBXFileReference; lastKnownFileType = wrapper.scnassets; path = art.scnassets; sourceTree = "<group>"; };
 		A90F59262062A4A500E9B10A /* Particles.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Particles.swift; sourceTree = "<group>"; };
 		A90F593D2062A59A00E9B10A /* PaprikaExplosionNode.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PaprikaExplosionNode.swift; sourceTree = "<group>"; };
+		A90F593F2062A7EC00E9B10A /* title.dae */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml.dae; path = title.dae; sourceTree = "<group>"; };
+		A90F59402062A7ED00E9B10A /* levelSelect.dae */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml.dae; path = levelSelect.dae; sourceTree = "<group>"; };
 		F574ED7DE041F4091FF109F6 /* Pods_game.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_game.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -158,10 +162,10 @@
 			isa = PBXGroup;
 			children = (
 				A90F59192062A49300E9B10A /* art.scnassets */,
-				A90F59082062A16600E9B10A /* Models */,
 				A90F58CD206275F100E9B10A /* Assets.xcassets */,
-				A90F58CE206275F100E9B10A /* LaunchScreen.storyboard */,
 				A90F58D2206275F100E9B10A /* Info.plist */,
+				A90F58CE206275F100E9B10A /* LaunchScreen.storyboard */,
+				A90F59082062A16600E9B10A /* Models */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -234,12 +238,14 @@
 		A90F59082062A16600E9B10A /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				A90F59092062A16600E9B10A /* turret.dae */,
-				A90F590A2062A16600E9B10A /* wall.dae */,
 				A90F590B2062A16600E9B10A /* coin.dae */,
+				A90F59402062A7ED00E9B10A /* levelSelect.dae */,
 				A90F590C2062A16600E9B10A /* paprika.dae */,
 				A90F590D2062A16600E9B10A /* paprikaExplosion.dae */,
 				A90F590E2062A16600E9B10A /* sphere.dae */,
+				A90F593F2062A7EC00E9B10A /* title.dae */,
+				A90F59092062A16600E9B10A /* turret.dae */,
+				A90F590A2062A16600E9B10A /* wall.dae */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -316,6 +322,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				A90F59102062A16600E9B10A /* wall.dae in Resources */,
+				A90F59412062A7ED00E9B10A /* title.dae in Resources */,
 				A90F591A2062A49300E9B10A /* art.scnassets in Resources */,
 				A90F59142062A16600E9B10A /* sphere.dae in Resources */,
 				A90F59132062A16600E9B10A /* paprikaExplosion.dae in Resources */,
@@ -324,6 +331,7 @@
 				A90F58D5206275F100E9B10A /* LaunchScreen.storyboard in Resources */,
 				A90F590F2062A16600E9B10A /* turret.dae in Resources */,
 				A90F59112062A16600E9B10A /* coin.dae in Resources */,
+				A90F59422062A7ED00E9B10A /* levelSelect.dae in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

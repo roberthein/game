@@ -3,6 +3,26 @@ import SceneKit
 
 extension SCNMaterial {
     
+    class var titleMaterial: SCNMaterial {
+        let material = SCNMaterial()
+        material.lightingModel = .physicallyBased
+        material.diffuse.contents = UIColor.turquoise
+        
+        return material
+    }
+    
+    class var goldTitleMaterial: SCNMaterial {
+        let material = SCNMaterial()
+        material.lightingModel = .physicallyBased
+        material.diffuse.contents = UIColor.gold
+        material.emission.contents = UIColor.gold
+        material.emission.intensity = 0.1
+        material.metalness.contents = UIColor.white
+        material.metalness.intensity = 1.2
+        
+        return material
+    }
+    
     class var playerMaterial: SCNMaterial {
         let material = SCNMaterial()
         material.lightingModel = .physicallyBased
@@ -69,4 +89,3 @@ extension SCNMaterial {
         return material
     }
 }
-

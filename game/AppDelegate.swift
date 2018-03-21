@@ -10,16 +10,15 @@ var App: AppDelegate {
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
-
+    
     var window: UIWindow?
     var game = Game.empty
     
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
-        
         game = Game.load() ?? Game.empty
         
         window = UIWindow(frame: UIScreen.main.bounds)
-        window?.rootViewController = UINavigationController(rootViewController: MenuViewController())
+        window?.rootViewController = UINavigationController(rootViewController: MenuViewController(type: .title))
         window?.makeKeyAndVisible()
         
         return true

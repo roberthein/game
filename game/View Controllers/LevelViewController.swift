@@ -1,6 +1,7 @@
 import UIKit
 import TinyConstraints
 import SceneKit
+import Observable
 
 class LevelViewController: UIViewController {
     
@@ -15,7 +16,9 @@ class LevelViewController: UIViewController {
         return view
     }()
     
+    private var disposal = Disposal()
     private lazy var levelScene = LevelScene(level: level)
+    private lazy var controller = iOSController()
     
     private lazy var scnView: SCNView = {
         let view = SCNView(frame: UIScreen.main.bounds)
@@ -45,6 +48,7 @@ class LevelViewController: UIViewController {
         super.viewDidLoad()
         
         view.backgroundColor = .gray
+        view.addGestureRecognizer(controller.panGestureRecognizer)
         
         view.addSubview(scnView)
         view.addSubview(backButton)
@@ -52,6 +56,10 @@ class LevelViewController: UIViewController {
         backButton.topToSuperview(offset: 20, usingSafeArea: true)
         backButton.leftToSuperview(offset: 20)
         backButton.size(CGSize(width: 44, height: 44))
+        
+        controller.currentRotation.observe { [weak self] rotation, previousRotation in
+            self?.levelScene.playerNode.currentRotation.value = rotation
+            }.add(to: &disposal)
     }
     
     override func viewWillAppear(_ animated: Bool) {

@@ -22,6 +22,7 @@
 		A90F58EA206286D700E9B10A /* CameraNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = A90F58E9206286D700E9B10A /* CameraNode.swift */; };
 		A90F58ED2062887000E9B10A /* FloorNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = A90F58EB2062886F00E9B10A /* FloorNode.swift */; };
 		A90F58EE2062887000E9B10A /* PlayerNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = A90F58EC2062887000E9B10A /* PlayerNode.swift */; };
+		A90F58F120628B7200E9B10A /* iOSController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A90F58F020628B7200E9B10A /* iOSController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -43,6 +44,7 @@
 		A90F58E9206286D700E9B10A /* CameraNode.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CameraNode.swift; sourceTree = "<group>"; };
 		A90F58EB2062886F00E9B10A /* FloorNode.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FloorNode.swift; sourceTree = "<group>"; };
 		A90F58EC2062887000E9B10A /* PlayerNode.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlayerNode.swift; sourceTree = "<group>"; };
+		A90F58F020628B7200E9B10A /* iOSController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = iOSController.swift; sourceTree = "<group>"; };
 		F574ED7DE041F4091FF109F6 /* Pods_game.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_game.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -89,6 +91,7 @@
 			children = (
 				A90F58B82062755900E9B10A /* AppDelegate.swift */,
 				A90F58D820627EC100E9B10A /* Data */,
+				A90F58EF20628B7200E9B10A /* Game Controllers */,
 				A90F58E8206286D700E9B10A /* Nodes */,
 				A90F58CC206275F100E9B10A /* Resources */,
 				A90F58E52062863C00E9B10A /* Scenes */,
@@ -144,6 +147,14 @@
 				A90F58EC2062887000E9B10A /* PlayerNode.swift */,
 			);
 			path = Nodes;
+			sourceTree = "<group>";
+		};
+		A90F58EF20628B7200E9B10A /* Game Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				A90F58F020628B7200E9B10A /* iOSController.swift */,
+			);
+			path = "Game Controllers";
 			sourceTree = "<group>";
 		};
 		BBBE01B0DF86ACFDF6E7DB37 /* Pods */ = {
@@ -292,6 +303,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				A90F58EA206286D700E9B10A /* CameraNode.swift in Sources */,
+				A90F58F120628B7200E9B10A /* iOSController.swift in Sources */,
 				A90F58E120627EC100E9B10A /* World.swift in Sources */,
 				A90F58E220627EC100E9B10A /* Level.swift in Sources */,
 				A90F58ED2062887000E9B10A /* FloorNode.swift in Sources */,
